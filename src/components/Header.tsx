@@ -6,15 +6,15 @@ export function Header(){
         <header 
             className={`
                 flex justify-between items-center px-4 py-8 
-                lg:px-[calc(3%+16px)]
+                lg:px-20 lg:py-[23px]
             `}
             style={{backgroundColor: colors.darkBlueDark}}    
         >
-            <h1 className="font-[800]">
+            <h1 className="font-[800] lg:text-[24px]">
                 Where in the world?
             </h1>
             <button className="flex items-center gap-2">
-                <Moon weight="fill"/>
+                <Moon className="" weight="fill"/>
                 <span className="font-[600]">
                     Dark Mode
                 </span>

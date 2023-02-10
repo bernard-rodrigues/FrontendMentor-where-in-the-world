@@ -11,12 +11,12 @@ interface HomeCountryContainerProps{
 export function HomeCountryContainer({flagUrl, countryName, population, region, capital}: HomeCountryContainerProps){
     return(
         <div 
-            className="rounded-md mb-11"
+            className="rounded-md mb-[4.5rem] h-[21rem] w-64 flex-[0_0_21%]"
             style={{
                 backgroundColor: colors.darkBlueDark
             }}
         >
-            <img className="rounded-t-md" src={flagUrl} alt={"Flag from " + countryName} />
+            <img className="rounded-t-md h-40 w-full" src={flagUrl} alt={"Flag from " + countryName} />
             <div className="mx-6 mt-6 mb-9">
                 <h2 className="text-[16px] font-[800] mb-4">{countryName}</h2>
                 <p className="font-[300]"><span className="font-[600]">Population:</span> {population}</p>

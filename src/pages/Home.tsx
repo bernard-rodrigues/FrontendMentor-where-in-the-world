@@ -62,15 +62,15 @@ export function Home(){
     }
 
     return(
-        <div className="mx-4 mt-6">
-            <div className="flex flex-col lg:flex-row lg:justify-between lg:mx-[3%]">
+        <div className="mx-0 mt-12 lg:mx-20">
+            <div className="flex flex-col lg:flex-row lg:justify-between">
                 <SearchBar />
                 <ContinentFilter />
             </div>
             
             <div className={`
-                flex flex-col items-center mx-9
-                lg:flex-row lg:flex-wrap lg:justify-between lg:mx-[3%]`}>
+                flex flex-col items-center
+                lg:flex-row lg:flex-wrap lg:justify-between gap-1`}>
                 {countries.sort((a, b) => a.countryName.localeCompare(b.countryName))
                     .slice(0, 8)
                     .map((country, index) => (

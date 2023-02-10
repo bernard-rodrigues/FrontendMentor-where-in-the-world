@@ -3,7 +3,7 @@ import { colors } from "../utils/colors";
 
 export function SearchBar(){
     return(
-        <div className="flex mb-11">
+        <div className="flex mb-[3.25rem]">
             <button 
                 className="pl-7 pr-3 rounded-l-md"
                 style={{
@@ -13,7 +13,7 @@ export function SearchBar(){
                 <MagnifyingGlass weight="bold" size={20}/>
             </button>
             <input 
-                className="w-full rounded-r-md py-3 pl-4"
+                className="w-[26.5rem] rounded-r-md py-[15px] pl-4"
                 style={{
                     backgroundColor: colors.darkBlueDark,
                 }}
