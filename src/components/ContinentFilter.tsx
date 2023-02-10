@@ -7,7 +7,7 @@ const continents = [
 export function ContinentFilter(){
     return(
         <select
-            className="py-[15px] rounded-md pl-5 w-[12.5rem] mb-8 font-[600]"
+            className="py-[15px] rounded-md ml-4 lg:ml-0 pl-5 w-[12.5rem] mb-8 font-[600]"
             style={{backgroundColor: colors.darkBlueDark}}
         >
             {continents.map(continent => (

@@ -3,7 +3,7 @@ import { colors } from "../utils/colors";
 
 export function SearchBar(){
     return(
-        <div className="flex mb-[3.25rem]">
+        <div className="flex mb-9 mx-4 lg:mx-0 lg:mb-[3.25rem]">
             <button 
                 className="pl-7 pr-3 rounded-l-md"
                 style={{

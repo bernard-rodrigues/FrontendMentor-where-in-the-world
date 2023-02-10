@@ -62,7 +62,7 @@ export function Home(){
     }
 
     return(
-        <div className="mx-0 mt-12 lg:mx-20">
+        <div className="mx-0 mt-5 lg:mt-12 lg:mx-20">
             <div className="flex flex-col lg:flex-row lg:justify-between">
                 <SearchBar />
                 <ContinentFilter />

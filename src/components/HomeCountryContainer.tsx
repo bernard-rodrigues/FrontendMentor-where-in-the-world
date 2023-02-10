@@ -11,7 +11,7 @@ interface HomeCountryContainerProps{
 export function HomeCountryContainer({flagUrl, countryName, population, region, capital}: HomeCountryContainerProps){
     return(
         <div 
-            className="rounded-md mb-[4.5rem] h-[21rem] w-64 flex-[0_0_21%]"
+            className="rounded-md mb-[36px] lg:mb-[4.5rem] h-[21rem] w-64 lg:flex-[0_0_21%]"
             style={{
                 backgroundColor: colors.darkBlueDark
             }}
