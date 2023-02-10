@@ -1,7 +1,12 @@
 import { MagnifyingGlass } from "phosphor-react";
 import { colors } from "../utils/colors";
 
-export function SearchBar(){
+interface SearchBarProps{
+    term: string,
+    searchFunction: (term: string) => void
+}
+
+export function SearchBar({term, searchFunction}: SearchBarProps){
     return(
         <div className="flex mb-9 mx-4 lg:mx-0 lg:mb-[3.25rem]">
             <button 
@@ -18,6 +23,8 @@ export function SearchBar(){
                     backgroundColor: colors.darkBlueDark,
                 }}
                 placeholder="Search for a country..."
+                value={term}
+                onChange={(event) => {searchFunction(event.target.value)}}
             />
         </div>
     )
