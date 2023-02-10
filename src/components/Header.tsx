@@ -8,7 +8,7 @@ export function Header(){
     return (
         <header 
             className={`
-                flex justify-between items-center px-4 py-8 shadow-md
+                flex justify-between items-center px-[1.125rem] py-[1.825rem] shadow-md
                 lg:px-20 lg:py-[23px]
             `}
             style={{backgroundColor: colors.darkBlueDark}}    

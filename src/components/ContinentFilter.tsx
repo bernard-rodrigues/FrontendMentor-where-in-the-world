@@ -12,7 +12,7 @@ interface ContinentFilterBarProps{
 export function ContinentFilter({ currentContinent, filterFunction }: ContinentFilterBarProps){
     return(
         <select
-            className="py-[15px] rounded-md ml-4 lg:ml-0 pl-5 w-[12.5rem] mb-8 font-[600]"
+            className="py-[15px] rounded-md ml-[1.125rem] lg:ml-0 pl-5 w-[12.5rem] mb-8 font-[600]"
             style={{backgroundColor: colors.darkBlueDark}}
             value={currentContinent}
             onChange={(event) => filterFunction(event.target.value)}

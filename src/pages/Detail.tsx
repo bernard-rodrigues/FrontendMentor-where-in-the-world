@@ -9,10 +9,12 @@ export function Detail(){
     return(
         <>
         {location.state ? 
-            <div className="lg:mx-20">
+            <div className="mx-7 lg:mx-20">
                 <button 
                     type="button" 
-                    className="flex items-center mt-20 px-10 py-2 rounded-md gap-2 shadow-md"
+                    className={`
+                        flex items-center mt-[2.625rem] gap-2 rounded px-[1.625rem] py-[0.325rem] shadow-md
+                        lg:mt-20 lg:px-10 lg:py-2 lg:rounded-md`}
                     style={{
                         backgroundColor: colors.darkBlueDark,
                         color: colors.whiteDarkAndLight
@@ -22,7 +24,7 @@ export function Detail(){
                     <ArrowLeft/><span>Back</span>
                 </button>
 
-                <div className="mt-20 flex items-center justify-left gap-[8rem]">
+                <div className="lg:mt-20 flex items-center justify-left gap-[8rem]">
                     <img 
                         className="w-[35.5rem] h-[25.125rem]"
                         src={location.state.properties.flagUrl} 
@@ -39,13 +41,13 @@ export function Detail(){
                                 <p><span>Capital:</span> {formatPopulation(location.state.properties.capital)}</p>
                             </div>
                             <div className="ml-[7.75rem]">
-                                <p><span>Top Level Domain:</span> {formatPopulation(location.state.properties.topLevelDomain)}</p>
+                                <p><span>Top Level Domain:</span> {location.state.properties.topLevelDomain.join(', ')}</p>
                                 <p><span>Currencies:</span> {}</p>
-                                <p><span>Languages:</span> {}</p>
+                                <p><span>Languages:</span> {location.state.properties.languages.join(', ')}</p>
                             </div>
                         </div>
                         <div className="mt-[4.75rem]">
-                            <span className="font-[600]">Border Countries:</span>
+                            <span className="font-[600]">Border Countries: {location.state.properties.borderCountries.join(', ')}</span>
                         </div>
                     </div>
                 </div>

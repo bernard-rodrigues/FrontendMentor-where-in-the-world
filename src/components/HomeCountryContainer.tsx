@@ -10,7 +10,7 @@ export function HomeCountryContainer(props: HomeCountryContainerProps){
     
     return(
         <div 
-            className="rounded-md mb-[36px] lg:mb-[4.5rem] h-[21rem] w-64 lg:flex-[0_0_21%] hover:brightness-110 hover:cursor-pointer"
+            className="rounded-md mb-[36px] h-[20.825rem] w-[16.5rem] lg:mb-[4.5rem] lg:h-[21rem] lg:w-64 lg:flex-[0_0_21%] hover:brightness-110 hover:cursor-pointer"
             style={{
                 backgroundColor: colors.darkBlueDark
             }}
