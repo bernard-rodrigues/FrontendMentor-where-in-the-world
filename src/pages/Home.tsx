@@ -1,38 +1,42 @@
-import { Warning } from "phosphor-react"
+import { SpinnerGap } from "phosphor-react"
 import { useEffect, useState } from "react"
 import { ContinentFilter } from "../components/ContinentFilter"
 import { HomeCountryContainer } from "../components/HomeCountryContainer"
 import { SearchBar } from "../components/SearchBar"
+import { useColors } from "../contexts/ApplicationContext"
 import { api } from "../lib/axios"
 
-interface Currency{
-    name: string,
-    symbol: string
-}
+// interface Currency{
+//     name: string,
+//     symbol: string
+// }
 
-interface NativeName{
-    official: string,
-    common: string
-}
+// interface NativeName{
+//     official: string,
+//     common: string
+// }
 
-export interface Country{
-    flagUrl: string,
-    countryName: string,
-    population: number,
-    region: string,
-    capital:string[],
-    subregion: string,
-    languages?: string[],
-    topLevelDomain: string[],
-    borderCountries: string[]
-    currencies: Currency[],
-    nativeName: NativeName[],
-}
+// export interface Country{
+//     flagUrl: string,
+//     countryName: string,
+//     abbreviation: string,
+//     population: number,
+//     region: string,
+//     capital:string[],
+//     subregion: string,
+//     languages?: string[],
+//     topLevelDomain: string[],
+//     borderCountries: string[]
+//     currencies: Currency[],
+//     nativeName: NativeName[],
+// }
 
 export function Home(){
-    const [ countries, setCountries ] = useState<Country[]>([]);
+    // const [ countries, setCountries ] = useState<Country[]>([]);
     const [ searchTerm, setSearchTerm ] = useState('');
     const [ continentFilterTerm, setContinentFilterTerm ] = useState('Worldwide')
+
+    const { countries } = useColors()
 
     function updateSearchTerm(term: string){
         setSearchTerm(term)
@@ -59,32 +63,33 @@ export function Home(){
         return searchBarCountries
     }
 
-    useEffect(() => {
-        api.get('all').then(response => {
-            response.data.forEach((country: any) => {
-                const newCurrencies: Currency[] = country.currencies ? Object.values(country.currencies) : []
-                const newNativeNames: NativeName[] = country.name.nativeName ? Object.values(country.name.nativeName) : []
+    // useEffect(() => {
+    //     api.get('all').then(response => {
+    //         response.data.forEach((country: any) => {
+    //             const newCurrencies: Currency[] = country.currencies ? Object.values(country.currencies) : []
+    //             const newNativeNames: NativeName[] = country.name.nativeName ? Object.values(country.name.nativeName) : []
                 
-                const newCountry = {
-                    flagUrl: country.flags.png,
-                    countryName: country.name.common,
-                    population: country.population,
-                    region: country.region,
-                    capital: country.capital,
-                    subregion: country.subregion,
-                    topLevelDomain: country.tld,
-                    languages: country.languages ? Object.values(country.languages) as string[] : [],
-                    borderCountries: country.borders ? country.borders : [],
-                    currencies: newCurrencies,
-                    nativeName: newNativeNames
-                }
-                setCountries(currentCountries => [...currentCountries, newCountry])
-            })
-        })
-    }, [])
+    //             const newCountry = {
+    //                 flagUrl: country.flags.png,
+    //                 countryName: country.name.common,
+    //                 abbreviation: country.cca3,
+    //                 population: country.population,
+    //                 region: country.region,
+    //                 capital: country.capital,
+    //                 subregion: country.subregion,
+    //                 topLevelDomain: country.tld,
+    //                 languages: country.languages ? Object.values(country.languages) as string[] : [],
+    //                 borderCountries: country.borders ? country.borders : [],
+    //                 currencies: newCurrencies,
+    //                 nativeName: newNativeNames
+    //             }
+    //             setCountries(currentCountries => [...currentCountries, newCountry])
+    //         })
+    //     })
+    // }, [])
 
     return(
-        <div className="mx-0 mt-5 lg:mt-12 lg:mx-20">
+        <div className="mx-0 mt-5 lg:mt-12 lg:mx-auto lg:px-20 lg:max-w-screen-2xl">
             <div className="flex flex-col lg:flex-row lg:justify-between">
                 <SearchBar 
                     term={searchTerm}
@@ -108,6 +113,7 @@ export function Home(){
                             key={country.countryName + String(index)}
                             flagUrl={country.flagUrl}
                             countryName={country.countryName}
+                            abbreviation={country.abbreviation}
                             population={country.population}
                             region={country.region}
                             capital={country.capital}
@@ -121,8 +127,8 @@ export function Home(){
                     ))
                 :
                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex justify-center items-center gap-3">
-                    <Warning weight="fill"/>
-                    <span className="text-center">Sorry... No country found</span>
+                    <SpinnerGap size={30} className="animate-spin"/>
+                    <span className="text-center">Processing...</span>
                 </div>
                 }
             </div>
