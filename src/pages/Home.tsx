@@ -1,38 +1,11 @@
 import { SpinnerGap } from "phosphor-react"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { ContinentFilter } from "../components/ContinentFilter"
 import { HomeCountryContainer } from "../components/HomeCountryContainer"
 import { SearchBar } from "../components/SearchBar"
 import { useColors } from "../contexts/ApplicationContext"
-import { api } from "../lib/axios"
-
-// interface Currency{
-//     name: string,
-//     symbol: string
-// }
-
-// interface NativeName{
-//     official: string,
-//     common: string
-// }
-
-// export interface Country{
-//     flagUrl: string,
-//     countryName: string,
-//     abbreviation: string,
-//     population: number,
-//     region: string,
-//     capital:string[],
-//     subregion: string,
-//     languages?: string[],
-//     topLevelDomain: string[],
-//     borderCountries: string[]
-//     currencies: Currency[],
-//     nativeName: NativeName[],
-// }
 
 export function Home(){
-    // const [ countries, setCountries ] = useState<Country[]>([]);
     const [ searchTerm, setSearchTerm ] = useState('');
     const [ continentFilterTerm, setContinentFilterTerm ] = useState('Worldwide')
 
@@ -52,9 +25,7 @@ export function Home(){
         })
         
         const continentFilterCountries = countries.filter(country => {
-            if(continentFilterTerm !== "Worldwide"){
-                return country.region.toLowerCase().includes(continentFilterTerm.toLowerCase())
-            }
+            return country.region.toLowerCase().includes(continentFilterTerm.toLowerCase())
         })
 
         if(continentFilterCountries.length > 0){
@@ -62,31 +33,6 @@ export function Home(){
         }
         return searchBarCountries
     }
-
-    // useEffect(() => {
-    //     api.get('all').then(response => {
-    //         response.data.forEach((country: any) => {
-    //             const newCurrencies: Currency[] = country.currencies ? Object.values(country.currencies) : []
-    //             const newNativeNames: NativeName[] = country.name.nativeName ? Object.values(country.name.nativeName) : []
-                
-    //             const newCountry = {
-    //                 flagUrl: country.flags.png,
-    //                 countryName: country.name.common,
-    //                 abbreviation: country.cca3,
-    //                 population: country.population,
-    //                 region: country.region,
-    //                 capital: country.capital,
-    //                 subregion: country.subregion,
-    //                 topLevelDomain: country.tld,
-    //                 languages: country.languages ? Object.values(country.languages) as string[] : [],
-    //                 borderCountries: country.borders ? country.borders : [],
-    //                 currencies: newCurrencies,
-    //                 nativeName: newNativeNames
-    //             }
-    //             setCountries(currentCountries => [...currentCountries, newCountry])
-    //         })
-    //     })
-    // }, [])
 
     return(
         <div className="mx-0 mt-5 lg:mt-12 lg:mx-auto lg:px-20 lg:max-w-screen-2xl">
@@ -96,7 +42,6 @@ export function Home(){
                     searchFunction={updateSearchTerm}
                 />
                 <ContinentFilter 
-                    currentContinent={continentFilterTerm}
                     filterFunction={updateContinentFilterTerm}
                 />
             </div>

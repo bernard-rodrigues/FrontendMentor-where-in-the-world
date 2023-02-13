@@ -3,7 +3,7 @@ import { Detail } from "./pages/Detail";
 import { Home } from "./pages/Home";
 import { colors } from "./utils/colors";
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { ColorsContextProvider, useColors } from "./contexts/ApplicationContext";
+import { useColors } from "./contexts/ApplicationContext";
 
 export function App() {
   const { isLight } = useColors()

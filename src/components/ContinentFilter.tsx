@@ -8,11 +8,10 @@ const continents = [
 ]
 
 interface ContinentFilterBarProps{
-    currentContinent: string,
     filterFunction: (term: string) => void
 }
 
-export function ContinentFilter({ currentContinent, filterFunction }: ContinentFilterBarProps){
+export function ContinentFilter({ filterFunction }: ContinentFilterBarProps){
     const {isLight} = useColors()
     
     return(
