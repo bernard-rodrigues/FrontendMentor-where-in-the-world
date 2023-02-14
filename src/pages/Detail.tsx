@@ -33,7 +33,7 @@ export function Detail(){
     return(
         <>
         {country ? 
-            <div className="mx-7 lg:mx-20 lg:pb-8">
+            <main className="mx-7 lg:mx-20 lg:pb-8">
                 <button 
                     type="button" 
                     className={`
@@ -110,14 +110,14 @@ export function Detail(){
                         </div>
                     </div>
                 </div>
-            </div>
+            </main>
         :
-            <div>
+            <main>
                 <div className="fixed flex justify-center items-center gap-3 left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
                     <Warning weight="fill"/>
                     <span className="text-center">Ops... Return to main page and choose a country</span>
                 </div>
-            </div>
+            </main>
         }
         </>
     )

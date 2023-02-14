@@ -12,8 +12,8 @@ export function SearchBar({term, searchFunction}: SearchBarProps){
     
     return(
         <div className="flex mb-[2.55rem] mx-[1.125rem] lg:mx-0 lg:mb-[3.25rem] shadow-md">
-            <button 
-                className="pl-7 pr-3 rounded-l-md"
+            <div 
+                className="pl-7 pr-3 rounded-l-md flex justify-center items-center"
                 style={
                     isLight ?
                         {
@@ -26,7 +26,7 @@ export function SearchBar({term, searchFunction}: SearchBarProps){
                 }    
             >
                 <MagnifyingGlass weight="bold" size={20} />
-            </button>
+            </div>
             <input 
                 className="w-[26.5rem] rounded-r-md py-[15px] pl-4"
                 style={

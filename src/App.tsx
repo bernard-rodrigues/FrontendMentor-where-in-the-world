@@ -4,6 +4,7 @@ import { Home } from "./pages/Home";
 import { colors } from "./utils/colors";
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { useColors } from "./contexts/ApplicationContext";
+import { Footer } from "./components/Footer";
 
 export function App() {
   const { isLight } = useColors()
@@ -34,6 +35,7 @@ export function App() {
           <Route path="/:countryName" element={<Detail />}/>
         </Routes>
       </BrowserRouter>
+      <Footer />
     </div>
   )
 }

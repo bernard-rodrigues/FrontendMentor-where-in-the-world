@@ -7,7 +7,7 @@ import { useColors } from "../contexts/ApplicationContext"
 
 export function Home(){
     const [ searchTerm, setSearchTerm ] = useState('');
-    const [ continentFilterTerm, setContinentFilterTerm ] = useState('Worldwide')
+    const [ continentFilterTerm, setContinentFilterTerm ] = useState('')
 
     const { countries } = useColors()
 
@@ -25,7 +25,9 @@ export function Home(){
         })
         
         const continentFilterCountries = countries.filter(country => {
+            
             return country.region.toLowerCase().includes(continentFilterTerm.toLowerCase())
+            
         })
 
         if(continentFilterCountries.length > 0){
@@ -35,7 +37,7 @@ export function Home(){
     }
 
     return(
-        <div className="mx-0 mt-5 lg:mt-12 lg:mx-auto lg:px-20 lg:max-w-screen-2xl">
+        <main className="mx-0 mt-5 lg:mt-12 lg:mx-auto lg:px-20 lg:max-w-screen-2xl">
             <div className="flex flex-col lg:flex-row lg:justify-between">
                 <SearchBar 
                     term={searchTerm}
@@ -77,6 +79,6 @@ export function Home(){
                 </div>
                 }
             </div>
-        </div>
+        </main>
     )
 }
